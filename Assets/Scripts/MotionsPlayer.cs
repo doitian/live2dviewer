@@ -7,11 +7,13 @@ public class MotionsPlayer : MonoBehaviour {
 	public SimpleModel model;
 	public TextAsset[] motionFiles;
 	public bool loop;
+	public float dragWaitSeconds = 0.5f;
 
 	private MotionQueueManager motionMgr;
 	private Live2DMotion[] motions;
 	private bool running;
 	private int currentMotionIndex = -1;
+	private float startClickTime = 0f;
 
 	public void ToggleLoop() {
 		loop = !loop;
@@ -31,11 +33,15 @@ public class MotionsPlayer : MonoBehaviour {
 	}
 
 	void Update() {
-		if (motions == null || motions.Length == 0) {
+		if (motions == null || motions.Length == 0 || EventSystem.current.IsPointerOverGameObject()) {
 			return;
 		}
 
-		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
+		if (Input.GetMouseButtonDown(0)) {
+			startClickTime = Time.realtimeSinceStartup;
+		}
+
+		if (Input.GetMouseButtonUp(0) && Time.realtimeSinceStartup - startClickTime < dragWaitSeconds) {
 			currentMotionIndex++;
 			if (currentMotionIndex >= motions.Length) {
 				currentMotionIndex = 0;
