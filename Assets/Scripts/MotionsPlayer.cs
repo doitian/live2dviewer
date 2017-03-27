@@ -33,23 +33,26 @@ public class MotionsPlayer : MonoBehaviour {
 	}
 
 	void Update() {
-		if (motions == null || motions.Length == 0 || EventSystem.current.IsPointerOverGameObject()) {
+		if (motions == null || motions.Length == 0) {
 			return;
 		}
 
-		if (Input.GetMouseButtonDown(0)) {
-			startClickTime = Time.realtimeSinceStartup;
-		}
 
-		if (Input.GetMouseButtonUp(0) && Time.realtimeSinceStartup - startClickTime < dragWaitSeconds) {
-			currentMotionIndex++;
-			if (currentMotionIndex >= motions.Length) {
-				currentMotionIndex = 0;
+		if (!EventSystem.current.IsPointerOverGameObject()) {
+			if (Input.GetMouseButtonDown (0)) {
+				startClickTime = Time.realtimeSinceStartup;
 			}
-			var motion = motions[currentMotionIndex];
-			motionMgr.stopAllMotions();
-			motionMgr.startMotion(motion);
-			running = true;
+
+			if (Input.GetMouseButtonUp (0) && Time.realtimeSinceStartup - startClickTime < dragWaitSeconds) {
+				currentMotionIndex++;
+				if (currentMotionIndex >= motions.Length) {
+					currentMotionIndex = 0;
+				}
+				var motion = motions [currentMotionIndex];
+				motionMgr.stopAllMotions ();
+				motionMgr.startMotion (motion);
+				running = true;
+			}
 		}
 
 		if (motionMgr.isFinished()) {
