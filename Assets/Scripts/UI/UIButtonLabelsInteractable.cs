@@ -35,7 +35,6 @@ public class UIButtonLabelsInteractable : MonoBehaviour
 
 		normalColors = new Color[labels.Length];
 		for (int i = 0; i < labels.Length; i++) {
-			Debug.Log("color=" + labels[i].color);
 			normalColors[i] = labels[i].color;
 		}
 
