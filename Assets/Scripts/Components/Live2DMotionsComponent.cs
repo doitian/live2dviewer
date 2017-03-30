@@ -3,8 +3,8 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using live2d;
 
-public class MotionsPlayer : MonoBehaviour {
-	public SimpleModel model;
+public class Live2DMotionsComponent : MonoBehaviour {
+	public Live2DModelComponent modelComponent;
 	public TextAsset[] motionFiles;
 	public bool loop;
 	public float dragWaitSeconds = 0.5f;
@@ -27,8 +27,8 @@ public class MotionsPlayer : MonoBehaviour {
 		}
 		currentMotionIndex = motionFiles.Length - 1;
 
-		if (model == null) {
-			model = GetComponent<SimpleModel>();
+		if (modelComponent == null) {
+			modelComponent = GetComponent<Live2DModelComponent>();
 		}
 	}
 
@@ -66,6 +66,6 @@ public class MotionsPlayer : MonoBehaviour {
 				return;
 			}
 		}
-		motionMgr.updateParam(model.model);
+		motionMgr.updateParam(modelComponent.model);
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CameraDragMove : MonoBehaviour {
+public class CameraDragMoveHelper : MonoBehaviour {
 	private Vector3 dragOrigin;
 	private Vector3 originPosition;
 	private bool dragging = false;
