@@ -100,6 +100,20 @@ public class ConfigController : MonoBehaviour
 		}
 	}
 
+	public void OnSelectExpression(int index) {
+		if (config.models.Length == 0) {
+			return;
+		}
+
+		var current = config.currentModel;
+		if (index >= 0 && index < current.expressionFiles.Length) {
+			current.currentExpressionIndex =  index;
+			TriggerChanges(Live2DViewerConfigChangeType.Expression);
+
+			Destroy(gameObject);
+		}
+	}
+
 	public void OnLoopMotionChanged(bool loop) {
 		config.loopMotion = loop;
 		TriggerChanges(Live2DViewerConfigChangeType.LoopMotion);

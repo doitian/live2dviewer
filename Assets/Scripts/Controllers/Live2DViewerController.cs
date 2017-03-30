@@ -9,6 +9,7 @@ public class Live2DViewerController : MonoBehaviour
 	public BackgroundComponent backgroundComponent;
 	public Live2DModelComponent modelComponent;
 	public Live2DMotionsComponent motionsComponent;
+	public Live2DExpressionComponent expComponent;
 	public CameraResetAction cameraResetAction;
 
 	public Text indicatorTitle;
@@ -35,11 +36,15 @@ public class Live2DViewerController : MonoBehaviour
 					modelComponent.ReleaseModel();
 					motionsComponent.ReleaseMotions();
 				}
+				expComponent.ReleaseExpression();
 				cameraResetAction.Perform();
 				UpdateIndicator();
 				break;
 			case Live2DViewerConfigChangeType.Motion:
 				motionsComponent.PlayMotion(config.currentModel.currentMotionIndex);
+				break;
+			case Live2DViewerConfigChangeType.Expression:
+				expComponent.LoadFromFile(config.currentModel.expressionFiles[config.currentModel.currentExpressionIndex]);
 				break;
 			case Live2DViewerConfigChangeType.LoopMotion:
 				motionsComponent.loop = config.loopMotion;

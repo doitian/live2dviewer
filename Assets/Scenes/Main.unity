@@ -923,6 +923,7 @@ GameObject:
   - component: {fileID: 1026286314}
   - component: {fileID: 1026286313}
   - component: {fileID: 1026286315}
+  - component: {fileID: 1026286316}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -971,6 +972,18 @@ MonoBehaviour:
   motionFiles: []
   loop: 0
   dragWaitSeconds: 0.5
+--- !u!114 &1026286316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1026286312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7920ba81f664d8a9ccd840afad4d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelComponent: {fileID: 0}
 --- !u!1 &1074594320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,7 +1247,7 @@ Prefab:
     - target: {fileID: 224579448317137724, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000054836273
+      value: -0.000007867813
       objectReference: {fileID: 0}
     - target: {fileID: 224993608364848818, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1597,6 +1610,7 @@ MonoBehaviour:
   backgroundComponent: {fileID: 29957755}
   modelComponent: {fileID: 1026286313}
   motionsComponent: {fileID: 1026286315}
+  expComponent: {fileID: 1026286316}
   cameraResetAction: {fileID: 1074594328}
   indicatorTitle: {fileID: 390412755}
   indicatorBody: {fileID: 1802590568}

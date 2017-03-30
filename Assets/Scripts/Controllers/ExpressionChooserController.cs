@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using System.Collections;
 using System.IO;
 
-public class MotionChooserController : MonoBehaviour
+public class ExpressionChooserController : MonoBehaviour
 {
 	public GameObject prefab;
 	public GameObject itemPrefab;
@@ -24,24 +24,24 @@ public class MotionChooserController : MonoBehaviour
 		var go = Instantiate<GameObject>(prefab, parent, false);
 		var config = configController.config;
 		var vm = go.GetComponent<DialogViewModel>();
-		vm.titleText.text = "播放动作";
+		vm.titleText.text = "选择表情";
 		var content = vm.content;
 
 		if (config.models.Length > 0) {
 			var current = config.currentModel;
-			for (int i = 0; i < current.motionFiles.Length; i++) {
-				var file = current.motionFiles[i];
+			for (int i = 0; i < current.expressionFiles.Length; i++) {
+				var file = current.expressionFiles[i];
 				var itemGo = Instantiate<GameObject>(itemPrefab, content.transform, false);
-				itemGo.GetComponent<Button>().onClick.AddListener(OnSelectMotion(go, i));
+				itemGo.GetComponent<Button>().onClick.AddListener(OnSelectExpression(go, i));
 				var title = itemGo.transform.FindChild("title");
 				title.GetComponent<Text>().text = Path.GetFileNameWithoutExtension(file);
 			}
 		}
 	}
 
-	UnityAction OnSelectMotion(GameObject go, int i) {
+	UnityAction OnSelectExpression(GameObject go, int i) {
 		return () => {
-			configController.OnSelectMotion(i);	
+			configController.OnSelectExpression(i);	
 			Destroy(go);
 		};
 	}

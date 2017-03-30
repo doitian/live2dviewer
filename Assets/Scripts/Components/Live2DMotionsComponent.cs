@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.IO;
 using live2d;
+using live2d.framework;
 
 public class Live2DMotionsComponent : MonoBehaviour {
 	public Live2DModelComponent modelComponent;
@@ -79,6 +80,10 @@ public class Live2DMotionsComponent : MonoBehaviour {
 		motionMgr.stopAllMotions();
 		motionMgr.startMotion(motion);
 		running = true;
+	}
+
+	public void LoadExpression(string file) {
+		var exp = L2DExpressionMotion.loadJson(File.ReadAllBytes(file));
 	}
 
 	void Update() {
