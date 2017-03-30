@@ -74,6 +74,18 @@ public class ConfigController : MonoBehaviour
 		}
 	}
 
+	public void OnSelectModel(string name) {
+		for (int i = 0; i < config.models.Length; i++) {
+			var model = config.models[i];
+			if (model.name == name) {
+				config.currentModelIndex = i;
+				TriggerChanges(Live2DViewerConfigChangeType.Model);
+
+				Destroy(gameObject);
+			}
+		}
+	}
+
 	public void OnLoopMotionChanged(bool loop) {
 		config.loopMotion = loop;
 		TriggerChanges(Live2DViewerConfigChangeType.LoopMotion);

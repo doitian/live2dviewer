@@ -1234,7 +1234,22 @@ Prefab:
     - target: {fileID: 224579448317137724, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000017806888
+      value: 0.000025749207
+      objectReference: {fileID: 0}
+    - target: {fileID: 224993608364848818, guid: 98b1386af7c2f4f4a939512ae6f034cc,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224993608364848818, guid: 98b1386af7c2f4f4a939512ae6f034cc,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224993608364848818, guid: 98b1386af7c2f4f4a939512ae6f034cc,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 224499046233671642, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
