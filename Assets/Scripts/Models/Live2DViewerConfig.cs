@@ -43,6 +43,19 @@ public class Live2DViewerConfig
 		get { return models[currentModelIndex]; } 
 	}
 
+	public void NextModel() {
+		currentModelIndex++;
+		if (currentModelIndex >= models.Length) {
+			currentModelIndex = 0;
+		}
+	}
+	public void PrevModel() {
+		currentModelIndex--;
+		if (currentModelIndex < 0) {
+			currentModelIndex = models.Length - 1;
+		}
+	}
+
 	public void ScanFolder(string path) {
 		var modelList = new List<Live2DModelConfig>();
 

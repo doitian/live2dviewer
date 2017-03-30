@@ -9,6 +9,7 @@ public class Live2DViewerController : MonoBehaviour
 	public BackgroundComponent backgroundComponent;
 	public Live2DModelComponent modelComponent;
 	public Live2DMotionsComponent motionsComponent;
+	public CameraResetAction cameraResetAction;
 
 	public Text indicatorTitle;
 	public Text indicatorBody;
@@ -34,6 +35,7 @@ public class Live2DViewerController : MonoBehaviour
 					modelComponent.ReleaseModel();
 					motionsComponent.ReleaseMotions();
 				}
+				cameraResetAction.Perform();
 				UpdateIndicator();
 				break;
 			case Live2DViewerConfigChangeType.LoopMotion:
@@ -53,12 +55,13 @@ public class Live2DViewerController : MonoBehaviour
 	}
 
 	public void PrevModel() {
+		config.PrevModel();
+		OnConfigChanged(config, Live2DViewerConfigChangeType.Model);
 	}
 
 	public void NextModel() {
-	}
-
-	public void NextMotion() {
+		config.NextModel();
+		OnConfigChanged(config, Live2DViewerConfigChangeType.Model);
 	}
 
 	void UpdateIndicator() {
@@ -69,6 +72,18 @@ public class Live2DViewerController : MonoBehaviour
 		} else {
 			indicatorTitle.text = "未加载";
 			indicatorBody.text = "";
+		}
+	}
+
+	void Update() {
+		if (Input.GetKeyUp(KeyCode.LeftArrow)) {
+			PrevModel();
+		}
+		if (Input.GetKeyUp(KeyCode.RightArrow)) {
+			NextModel();
+		}
+		if (Input.GetKeyUp(KeyCode.Space)) {
+			motionsComponent.NextMotion();
 		}
 	}
 }

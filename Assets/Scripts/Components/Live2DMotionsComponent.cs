@@ -50,6 +50,17 @@ public class Live2DMotionsComponent : MonoBehaviour {
 		motions = null;
 	}
 
+	public void NextMotion() {
+		currentMotionIndex++;
+		if (currentMotionIndex >= motions.Length) {
+			currentMotionIndex = 0;
+		}
+		var motion = motions[currentMotionIndex];
+		motionMgr.stopAllMotions();
+		motionMgr.startMotion(motion);
+		running = true;
+	}
+
 	void Update() {
 		if (motions == null || motions.Length == 0) {
 			return;
@@ -61,14 +72,7 @@ public class Live2DMotionsComponent : MonoBehaviour {
 			}
 
 			if (Input.GetMouseButtonUp (0) && Time.realtimeSinceStartup - startClickTime < dragWaitSeconds) {
-				currentMotionIndex++;
-				if (currentMotionIndex >= motions.Length) {
-					currentMotionIndex = 0;
-				}
-				var motion = motions [currentMotionIndex];
-				motionMgr.stopAllMotions ();
-				motionMgr.startMotion (motion);
-				running = true;
+				NextMotion();
 			}
 		}
 
