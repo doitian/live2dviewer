@@ -86,6 +86,20 @@ public class ConfigController : MonoBehaviour
 		}
 	}
 
+	public void OnSelectMotion(int motionIndex) {
+		if (config.models.Length == 0) {
+			return;
+		}
+
+		var current = config.currentModel;
+		if (motionIndex >= 0 && motionIndex < current.motionFiles.Length) {
+			current.currentMotionIndex = motionIndex;
+			TriggerChanges(Live2DViewerConfigChangeType.Motion);
+
+			Destroy(gameObject);
+		}
+	}
+
 	public void OnLoopMotionChanged(bool loop) {
 		config.loopMotion = loop;
 		TriggerChanges(Live2DViewerConfigChangeType.LoopMotion);

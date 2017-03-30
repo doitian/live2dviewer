@@ -38,6 +38,9 @@ public class Live2DViewerController : MonoBehaviour
 				cameraResetAction.Perform();
 				UpdateIndicator();
 				break;
+			case Live2DViewerConfigChangeType.Motion:
+				motionsComponent.PlayMotion(config.currentModel.currentMotionIndex);
+				break;
 			case Live2DViewerConfigChangeType.LoopMotion:
 				motionsComponent.loop = config.loopMotion;
 				break;

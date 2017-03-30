@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 114086328912551672}
   - component: {fileID: 114236000114926242}
   - component: {fileID: 114582515836378500}
+  - component: {fileID: 114066791342698494}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -985,6 +986,21 @@ MonoBehaviour:
   colors:
   - {r: 1, g: 1, b: 1, a: 0.14117648}
   - {r: 1, g: 1, b: 1, a: 0.1254902}
+--- !u!114 &114066791342698494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670103961791558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf4437e14bf14a41b4736aabfee3b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1140453332982856, guid: a9d0f22303faa4aa9bae7af5dc96fb78, type: 2}
+  itemPrefab: {fileID: 1711074136778774, guid: d977a84a89988426b994d364b1d3a21d, type: 2}
+  parent: {fileID: 0}
+  configController: {fileID: 0}
 --- !u!114 &114086328912551672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1641,7 +1657,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
 --- !u!114 &114391521888546150
@@ -1770,7 +1786,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
 --- !u!114 &114487460400245410
@@ -2731,7 +2747,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114515474062184578}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114066791342698494}
+        m_MethodName: LaunchDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114819822267445588
@@ -4126,7 +4153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000025749207}
+  m_AnchoredPosition: {x: 0, y: 0.000024557114}
   m_SizeDelta: {x: 0, y: 752}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224610004443154194

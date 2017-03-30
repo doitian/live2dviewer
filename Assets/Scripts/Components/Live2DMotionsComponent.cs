@@ -51,11 +51,31 @@ public class Live2DMotionsComponent : MonoBehaviour {
 	}
 
 	public void NextMotion() {
+		if (motions == null || motions.Length == 0) {
+			return;
+		}
+
 		currentMotionIndex++;
 		if (currentMotionIndex >= motions.Length) {
 			currentMotionIndex = 0;
 		}
 		var motion = motions[currentMotionIndex];
+		motionMgr.stopAllMotions();
+		motionMgr.startMotion(motion);
+		running = true;
+	}
+
+	public void PlayMotion(int i) {
+		if (motions == null || motions.Length == 0) {
+			return;
+		}
+
+		if (i < 0 || i >= motions.Length) {
+			i = 0;
+		}
+
+		currentMotionIndex = i;
+		var motion = motions[i];
 		motionMgr.stopAllMotions();
 		motionMgr.startMotion(motion);
 		running = true;

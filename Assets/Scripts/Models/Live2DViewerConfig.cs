@@ -26,8 +26,7 @@ public class Live2DModelConfig
 
 	public Live2DPartConfig[] parts;
 
-	public int currentMotion = 0;
-	public int currentExpression = 0;
+	public int currentMotionIndex;
 }
 
 [Serializable]
