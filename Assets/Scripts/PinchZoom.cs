@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PinchZoom : MonoBehaviour
 {
@@ -37,11 +38,13 @@ public class PinchZoom : MonoBehaviour
 			return;
 		}
 
-		var d = Input.GetAxis("Mouse ScrollWheel");
-		if (d == 0f) {
-			return;
+		if (!EventSystem.current.IsPointerOverGameObject()) {
+			var d = Input.GetAxis("Mouse ScrollWheel");
+			if (d == 0f) {
+				return;
+			}
+			Zoom(mouseScrollWheelSpeed * d);
 		}
-		Zoom(mouseScrollWheelSpeed * d);
 	}
 
 	public void Zoom(float delta) {
