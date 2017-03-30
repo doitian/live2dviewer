@@ -31,7 +31,7 @@ public class BackgroundComponent : MonoBehaviour {
 		ApplyTexture();
 	}
 
-	void Update() {
+	public void Update() {
 		var scale = Vector3.one;
 		var screenRatio = (float)Screen.width / Screen.height;
 		if (screenRatio > ratio) {

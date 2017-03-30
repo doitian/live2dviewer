@@ -63,6 +63,7 @@ public class ConfigController : MonoBehaviour
 
 				Destroy(gameObject);
 			} catch (Exception ex) {
+				Debug.LogException(ex);
 				tinyfd.TinyFileDialogs.MessageBox(
 					"异常",
 					ex.Message,

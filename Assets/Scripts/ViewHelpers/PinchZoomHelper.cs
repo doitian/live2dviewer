@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class PinchZoomHelper : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PinchZoomHelper : MonoBehaviour
 	public float mouseScrollWheelSpeed = 1.0f;
 
 	public Camera zoomCamera;
+
+	public UnityEvent onZoomChanged;
 
 	void Start() {
 		if (zoomCamera == null) {
@@ -61,6 +64,9 @@ public class PinchZoomHelper : MonoBehaviour
 
 			// Clamp the field of view to make sure it's between 0 and 180.
 			zoomCamera.fieldOfView = Mathf.Clamp(zoomCamera.fieldOfView, 0.1f, 179.9f);
+		}
+		if (onZoomChanged != null) {
+			onZoomChanged.Invoke();
 		}
 	}
 }
