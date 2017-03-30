@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.IO;
 
 public class BackgroundComponent : MonoBehaviour {
 	public Texture2D defaultTexture;
@@ -11,6 +12,22 @@ public class BackgroundComponent : MonoBehaviour {
 		if (texture == null) {
 			texture = defaultTexture;
 		}
+		ApplyTexture();
+	}
+
+	public void LoadFromFile(string path) {
+		try {
+			if (path == null) {
+				texture = defaultTexture;
+			} else {
+				var newTexture = new Texture2D(2, 2);
+				newTexture.LoadImage(File.ReadAllBytes(path));
+				texture = newTexture;
+			}
+		} catch {
+			texture = defaultTexture;
+		}
+
 		ApplyTexture();
 	}
 

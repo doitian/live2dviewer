@@ -49,6 +49,7 @@ public class ConfigController : MonoBehaviour
 					backgroundPathText.text = "未选择";
 				} else {
 					backgroundPathText.text = config.backgroundTexturePath;
+					builtinBackgroundToggle.isOn = false;
 				}
 				break;
 		}
@@ -56,8 +57,19 @@ public class ConfigController : MonoBehaviour
 
 	public void OnSelectRootFolder(string path) {
 		if (path != null) {
-			config.ScanFolder(path);
-			TriggerChanges(Live2DViewerConfigChangeType.RootFolder);
+			try {
+				config.ScanFolder(path);
+				TriggerChanges(Live2DViewerConfigChangeType.RootFolder);
+
+				Destroy(gameObject);
+			} catch (Exception ex) {
+				tinyfd.TinyFileDialogs.MessageBox(
+					"异常",
+					ex.Message,
+					tinyfd.DialogType.ok,
+					tinyfd.IconType.error
+				);
+			}
 		}
 	}
 
@@ -75,6 +87,7 @@ public class ConfigController : MonoBehaviour
 		if (path != null) {
 			config.backgroundTexturePath = path;
 			TriggerChanges(Live2DViewerConfigChangeType.Background);
+			Destroy(gameObject);
 		}
 	}
 

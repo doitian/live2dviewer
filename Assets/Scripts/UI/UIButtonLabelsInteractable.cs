@@ -25,7 +25,7 @@ public class UIButtonLabelsInteractable : MonoBehaviour
 		}
 	}
 
-	void Start() {
+	void Awake() {
 		if (button == null) {
 			button = GetComponent<Button>();
 			if (button == null) {
@@ -37,7 +37,9 @@ public class UIButtonLabelsInteractable : MonoBehaviour
 		for (int i = 0; i < labels.Length; i++) {
 			normalColors[i] = labels[i].color;
 		}
+	}
 
+	void Start() {
 		SyncState();
 	}
 
