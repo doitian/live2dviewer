@@ -900,6 +900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1026286314}
   - component: {fileID: 1026286313}
+  - component: {fileID: 1026286315}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -933,6 +934,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1026286315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1026286312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8547bf6d9a879485c9f357fa87e26cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelComponent: {fileID: 0}
+  motionFiles: []
+  loop: 0
+  dragWaitSeconds: 0.5
 --- !u!1 &1074594320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1226,7 @@ Prefab:
     - target: {fileID: 224152001456133002, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224152001456133002, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1235,7 +1251,7 @@ Prefab:
     - target: {fileID: 224175762520247174, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -92
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224175762520247174, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1260,7 +1276,7 @@ Prefab:
     - target: {fileID: 224891581002626020, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -198
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224891581002626020, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1285,7 +1301,7 @@ Prefab:
     - target: {fileID: 224318014201128990, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -264
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224318014201128990, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1310,7 +1326,7 @@ Prefab:
     - target: {fileID: 224785886042744484, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -325.44
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224785886042744484, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1335,7 +1351,7 @@ Prefab:
     - target: {fileID: 224499046233671642, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224499046233671642, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1360,7 +1376,7 @@ Prefab:
     - target: {fileID: 224019361912246744, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224019361912246744, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1385,7 +1401,7 @@ Prefab:
     - target: {fileID: 224912340945712890, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -118
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224912340945712890, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1410,7 +1426,7 @@ Prefab:
     - target: {fileID: 224228334924124024, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -194
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224228334924124024, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1435,7 +1451,7 @@ Prefab:
     - target: {fileID: 224187414978016188, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -270
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224187414978016188, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
@@ -1547,6 +1563,7 @@ MonoBehaviour:
     loopMotion: 0
   backgroundComponent: {fileID: 29957755}
   modelComponent: {fileID: 1026286313}
+  motionsComponent: {fileID: 1026286315}
   indicatorTitle: {fileID: 390412755}
   indicatorBody: {fileID: 1802590568}
   settingsPrefab: {fileID: 1670103961791558, guid: 98b1386af7c2f4f4a939512ae6f034cc,

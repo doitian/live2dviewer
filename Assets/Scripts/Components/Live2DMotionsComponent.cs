@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using System.IO;
 using live2d;
 
 public class Live2DMotionsComponent : MonoBehaviour {
@@ -21,22 +22,38 @@ public class Live2DMotionsComponent : MonoBehaviour {
 
 	void Start() {
 		motionMgr = new MotionQueueManager();
+
+		if (modelComponent == null) {
+			modelComponent = GetComponent<Live2DModelComponent>();
+		}
+
 		motions = new Live2DMotion[motionFiles.Length];
 		for (int i = 0; i < motionFiles.Length; i++) {
 			motions[i] = Live2DMotion.loadMotion(motionFiles[i].bytes);
 		}
 		currentMotionIndex = motionFiles.Length - 1;
+	}
 
-		if (modelComponent == null) {
-			modelComponent = GetComponent<Live2DModelComponent>();
+	public void LoadFromFile(string[] motionFilePaths) {
+		motionMgr.stopAllMotions ();
+		running = false;
+
+		motions = new Live2DMotion[motionFilePaths.Length];
+		for (int i = 0; i < motionFilePaths.Length; i++) {
+			motions[i] = Live2DMotion.loadMotion(File.ReadAllBytes(motionFilePaths[i]));
 		}
+
+		currentMotionIndex = motionFiles.Length - 1;
+	}
+
+	public void ReleaseMotions() {
+		motions = null;
 	}
 
 	void Update() {
 		if (motions == null || motions.Length == 0) {
 			return;
 		}
-
 
 		if (!EventSystem.current.IsPointerOverGameObject()) {
 			if (Input.GetMouseButtonDown (0)) {

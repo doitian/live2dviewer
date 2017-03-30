@@ -9,6 +9,7 @@ using System.IO;
 public class Live2DPartConfig
 {
 	public string name;
+	public int index;
 	public bool visible;
 }
 
@@ -80,8 +81,8 @@ public class Live2DViewerConfig
 			}
 		}
 
-		config.motionFiles = Directory.GetFiles(path, "*.mtn");
-		config.expressionFiles = Directory.GetFiles(path, "*.exp.json");
+		config.motionFiles = Directory.GetFiles(path, "*.mtn", SearchOption.AllDirectories);
+		config.expressionFiles = Directory.GetFiles(path, "*.exp.json", SearchOption.AllDirectories);
 
 		return config;
 	}
