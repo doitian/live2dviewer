@@ -1521,6 +1521,11 @@ Prefab:
         Live2D \u6A21\u578B\uFF0C\u5176\u4E2D\u5E94\u8BE5\u5305\u542B moc \u6A21\u578B\u6587\u4EF6\uFF0C\u6750\u8D28\uFF0C\u52A8\u4F5C\uFF0C\u8868\u60C5\u7B49\u3002\u53EA\u9009
         \u4E00\u4E2A\u6A21\u578B\u76EE\u5F55\u4E5F\u662F\u53EF\u4EE5\u7684\u3002"
       objectReference: {fileID: 0}
+    - target: {fileID: 224371613835674270, guid: 98b1386af7c2f4f4a939512ae6f034cc,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98b1386af7c2f4f4a939512ae6f034cc, type: 2}
   m_IsPrefabParent: 0
