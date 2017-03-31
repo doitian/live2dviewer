@@ -40,7 +40,7 @@ namespace tinyfd
 				while (Marshal.ReadByte(ptr, len) != 0) ++len;
 				byte[] buffer = new byte[len];
 				Marshal.Copy(ptr, buffer, 0, buffer.Length);
-				return Encoding.UTF8.GetString(buffer);
+				return Encoding.Default.GetString(buffer);
 				#else
 				return Marshal.PtrToStringAuto(ptr);
 				#endif
