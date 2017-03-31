@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.IO;
 using System.Collections;
 
 public class ConfigController : MonoBehaviour
@@ -19,7 +20,10 @@ public class ConfigController : MonoBehaviour
 	public tinyfd.FileDialog rootFileDialog;
 
 	public void Start() {
-		rootFileDialog.defaultPathAndFile = PlayerPrefs.GetString(ROOT_DIR_DEFAULT_PATH_PREF_KEY) ?? "";
+		var historyFolder = PlayerPrefs.GetString(ROOT_DIR_DEFAULT_PATH_PREF_KEY) ?? "";
+		if (Directory.Exists(historyFolder)) {
+			rootFileDialog.defaultPathAndFile = historyFolder;
+		}
 		this.onConfigChanged.AddListener(Render);
 	}
 
