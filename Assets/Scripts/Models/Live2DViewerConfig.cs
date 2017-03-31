@@ -10,7 +10,7 @@ public class Live2DPartConfig
 {
 	public string name;
 	public int index;
-	public bool visible;
+	public float opacity;
 }
 
 [Serializable]

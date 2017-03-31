@@ -49,6 +49,9 @@ public class Live2DViewerController : MonoBehaviour
 			case Live2DViewerConfigChangeType.LoopMotion:
 				motionsComponent.loop = config.loopMotion;
 				break;
+			case Live2DViewerConfigChangeType.Parts:
+				modelComponent.SetParts(config.currentModel.parts);
+				break;
 			case Live2DViewerConfigChangeType.Background:
 				backgroundComponent.LoadFromFile(config.backgroundTexturePath);
 				break;

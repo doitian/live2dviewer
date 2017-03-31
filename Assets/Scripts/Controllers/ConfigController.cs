@@ -132,6 +132,10 @@ public class ConfigController : MonoBehaviour
 		}
 	}
 
+	public void OnPartsChanged() {
+		TriggerChanges(Live2DViewerConfigChangeType.Parts);
+	}
+
 	private void TriggerChanges(Live2DViewerConfigChangeType t) {
 		onConfigChanged.Invoke(config, t);
 	}

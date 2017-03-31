@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 114582515836378500}
   - component: {fileID: 114066791342698494}
   - component: {fileID: 114983526596184082}
+  - component: {fileID: 114010171888979150}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -957,6 +958,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114010171888979150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670103961791558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44d9f5809ad547acb9a5badc32580e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1002683111333978, guid: 4f75765fbffaa4ca7b057e35b5f952dc, type: 2}
+  itemPrefab: {fileID: 1219868626707926, guid: 6659c22451d2648eabecaba22419a2b3, type: 2}
+  parent: {fileID: 0}
+  configController: {fileID: 0}
 --- !u!114 &114017435505854118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1078,7 +1094,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114110523308568276}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114010171888979150}
+        m_MethodName: LaunchDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114097540800396168
@@ -4180,7 +4207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000007972121}
+  m_AnchoredPosition: {x: 0, y: -0.000007867813}
   m_SizeDelta: {x: 0, y: 752}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224610004443154194
