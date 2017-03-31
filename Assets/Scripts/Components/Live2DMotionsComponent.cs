@@ -82,10 +82,6 @@ public class Live2DMotionsComponent : MonoBehaviour {
 		running = true;
 	}
 
-	public void LoadExpression(string file) {
-		var exp = L2DExpressionMotion.loadJson(File.ReadAllBytes(file));
-	}
-
 	void Update() {
 		if (motions == null || motions.Length == 0) {
 			return;
