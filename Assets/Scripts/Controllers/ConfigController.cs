@@ -5,6 +5,8 @@ using System.Collections;
 
 public class ConfigController : MonoBehaviour
 {
+	const string ROOT_DIR_DEFAULT_PATH_PREF_KEY = "ROOT_DIR_DEFUALT_PATH";
+
 	public Live2DViewerConfig config;
 
 	public Live2DViewerConfigEvent onConfigChanged;
@@ -14,8 +16,10 @@ public class ConfigController : MonoBehaviour
 	public Toggle builtinBackgroundToggle;
 	public Text backgroundPathText;
 	public Toggle loopMotionToggle;
+	public tinyfd.FileDialog rootFileDialog;
 
 	public void Start() {
+		rootFileDialog.defaultPathAndFile = PlayerPrefs.GetString(ROOT_DIR_DEFAULT_PATH_PREF_KEY) ?? "";
 		this.onConfigChanged.AddListener(Render);
 	}
 
@@ -60,6 +64,8 @@ public class ConfigController : MonoBehaviour
 			try {
 				config.ScanFolder(path);
 				TriggerChanges(Live2DViewerConfigChangeType.RootFolder);
+
+				PlayerPrefs.SetString(ROOT_DIR_DEFAULT_PATH_PREF_KEY, path);
 
 				Destroy(gameObject);
 			} catch (Exception ex) {

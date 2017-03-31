@@ -1056,6 +1056,7 @@ MonoBehaviour:
   builtinBackgroundToggle: {fileID: 114645838527934810}
   backgroundPathText: {fileID: 114326301412266176}
   loopMotionToggle: {fileID: 114148735424417566}
+  rootFileDialog: {fileID: 114138537504842848}
 --- !u!114 &114087655239574058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3208,7 +3209,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u8BE5\u6839\u76EE\u5F55\u4E0B\u6BCF\u4E2A\u5B50\u76EE\u5F55\u5E94\u8BE5\u5BF9\u5E94\u4E00\u4E2A
-    Live2D \u6A21\u578B\uFF0C\u5176\u4E2D\u5E94\u8BE5\u5305\u542B moc \u6A21\u578B\u6587\u4EF6\uFF0C\u6750\u8D28\uFF0C\u52A8\u4F5C\uFF0C\u8868\u60C5\u7B49\u3002"
+    Live2D \u6A21\u578B\uFF0C\u5176\u4E2D\u5E94\u8BE5\u5305\u542B moc \u6A21\u578B\u6587\u4EF6\uFF0C\u6750\u8D28\uFF0C\u52A8\u4F5C\uFF0C\u8868\u60C5\u7B49\u3002\u53EA\u9009
+    \u4E00\u4E2A\u6A21\u578B\u76EE\u5F55\u4E5F\u662F\u53EF\u4EE5\u7684\u3002"
 --- !u!114 &114980771381774652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4207,7 +4209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000007867813}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
   m_SizeDelta: {x: 0, y: 752}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224610004443154194
