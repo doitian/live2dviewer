@@ -1242,12 +1242,12 @@ Prefab:
     - target: {fileID: 224371613835674270, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.56648934
       objectReference: {fileID: 0}
     - target: {fileID: 224579448317137724, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00002002716
+      value: 326.00003
       objectReference: {fileID: 0}
     - target: {fileID: 224993608364848818, guid: 98b1386af7c2f4f4a939512ae6f034cc,
         type: 2}
