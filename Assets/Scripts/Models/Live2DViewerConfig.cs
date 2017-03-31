@@ -66,6 +66,13 @@ public class Live2DViewerConfig
 			}
 		}
 
+		if (modelList.Count == 0) {
+			var modelConfig = TryScanModelFolder(path);
+			if (modelConfig != null) {
+				modelList.Add(modelConfig);
+			}
+		}
+
 		models = modelList.ToArray();
 		rootFolder = path;
 		currentModelIndex = 0;
@@ -75,6 +82,9 @@ public class Live2DViewerConfig
 		var config = new Live2DModelConfig();
 
 		config.name = Path.GetFileName(path);
+		if (String.IsNullOrEmpty(config.name)) {
+			config.name = Path.GetFileName(Path.GetDirectoryName(path));
+		}
 		config.path = path;
 
 		var mocFiles = Directory.GetFiles(path, "*.moc", SearchOption.AllDirectories);
