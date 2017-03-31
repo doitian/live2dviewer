@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Text;
 using System.Runtime.InteropServices;
 
@@ -35,15 +36,17 @@ namespace tinyfd
 
 		private static string PtrToNullableString(IntPtr ptr) {
 			if (ptr != IntPtr.Zero) {
-				#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-				int len = 0;
-				while (Marshal.ReadByte(ptr, len) != 0) ++len;
-				byte[] buffer = new byte[len];
-				Marshal.Copy(ptr, buffer, 0, buffer.Length);
-				return Encoding.Default.GetString(buffer);
-				#else
-				return Marshal.PtrToStringAuto(ptr);
-				#endif
+				if (Path.DirectorySeparatorChar == '\\') {
+					int len = 0;
+					while (Marshal.ReadByte(ptr, len) != 0) {
+						++len;
+					}
+					byte[] buffer = new byte[len];
+					Marshal.Copy(ptr, buffer, 0, buffer.Length);
+					return Encoding.Default.GetString(buffer);
+				} else {
+					return Marshal.PtrToStringAuto(ptr);
+				}
 			}
 			return null;
 		}
