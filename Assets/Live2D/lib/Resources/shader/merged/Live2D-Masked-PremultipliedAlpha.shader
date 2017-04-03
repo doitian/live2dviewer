@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 
 Shader "Live2D/Live2D Masked PremultipliedAlpha" {
 	Properties{
@@ -59,7 +61,7 @@ Shader "Live2D/Live2D Masked PremultipliedAlpha" {
 			v2f vert(appdata_t v)
 			{
 				v2f OUT;
-				OUT.position = mul(UNITY_MATRIX_MVP, v.vertex);
+				OUT.position = UnityObjectToClipPos(v.vertex);
 				OUT.texcoord = v.texcoord;
 				OUT.color=v.color;
 				OUT.clipPos = mul(_ClipMatrix, v.vertex);
