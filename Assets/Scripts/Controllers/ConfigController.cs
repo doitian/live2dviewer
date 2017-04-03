@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System;
 using System.IO;
-using System.Collections;
 
 public class ConfigController : MonoBehaviour
 {
@@ -17,12 +16,12 @@ public class ConfigController : MonoBehaviour
 	public Toggle builtinBackgroundToggle;
 	public Text backgroundPathText;
 	public Toggle loopMotionToggle;
-	public tinyfd.FileDialog rootFileDialog;
+	public nfd.FileDialog rootFileDialog;
 
 	public void Start() {
 		var historyFolder = PlayerPrefs.GetString(ROOT_DIR_DEFAULT_PATH_PREF_KEY) ?? "";
 		if (Directory.Exists(historyFolder)) {
-			rootFileDialog.defaultPathAndFile = historyFolder;
+			rootFileDialog.defaultPath = historyFolder;
 		}
 		this.onConfigChanged.AddListener(Render);
 	}
@@ -63,8 +62,8 @@ public class ConfigController : MonoBehaviour
 		}
 	}
 
-	public void OnSelectRootFolder(string path) {
-		if (path != null) {
+	public void OnSelectRootFolder(nfd.NfdResult r, string path, string[] paths) {
+		if (r == nfd.NfdResult.NFD_OKAY) {
 			try {
 				config.ScanFolder(path);
 				TriggerChanges(Live2DViewerConfigChangeType.RootFolder);
@@ -74,12 +73,6 @@ public class ConfigController : MonoBehaviour
 				Destroy(gameObject);
 			} catch (Exception ex) {
 				Debug.LogException(ex);
-				tinyfd.TinyFileDialogs.MessageBox(
-					"异常",
-					ex.Message,
-					tinyfd.DialogType.ok,
-					tinyfd.IconType.error
-				);
 			}
 		}
 	}
@@ -134,8 +127,8 @@ public class ConfigController : MonoBehaviour
 		TriggerChanges(Live2DViewerConfigChangeType.Background);
 	}
 
-	public void OnSelectBackgroundPath(string path) {
-		if (path != null) {
+	public void OnSelectBackgroundPath(nfd.NfdResult r, string path, string[] paths) {
+		if (r == nfd.NfdResult.NFD_OKAY) {
 			config.backgroundTexturePath = path;
 			TriggerChanges(Live2DViewerConfigChangeType.Background);
 			Destroy(gameObject);
