@@ -33,7 +33,7 @@ public class MotionChooserController : MonoBehaviour
 				var file = current.motionFiles[i];
 				var itemGo = Instantiate<GameObject>(itemPrefab, content.transform, false);
 				itemGo.GetComponent<Button>().onClick.AddListener(OnSelectMotion(go, i));
-				var title = itemGo.transform.FindChild("title");
+				var title = itemGo.transform.Find("title");
 				title.GetComponent<Text>().text = Path.GetFileNameWithoutExtension(file);
 			}
 		}

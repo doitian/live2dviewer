@@ -33,7 +33,7 @@ public class ExpressionChooserController : MonoBehaviour
 				var file = current.expressionFiles[i];
 				var itemGo = Instantiate<GameObject>(itemPrefab, content.transform, false);
 				itemGo.GetComponent<Button>().onClick.AddListener(OnSelectExpression(go, i));
-				var title = itemGo.transform.FindChild("title");
+				var title = itemGo.transform.Find("title");
 				title.GetComponent<Text>().text = Path.GetFileNameWithoutExtension(file);
 			}
 		}

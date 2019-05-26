@@ -33,7 +33,7 @@ public class PartOpacitySlidersController : MonoBehaviour
 			for (int i = 0; i < current.parts.Length; i++) {
 				var p = current.parts[i];
 				var itemGo = Instantiate<GameObject>(itemPrefab, content.transform, false);
-				var title = itemGo.transform.FindChild("title");
+				var title = itemGo.transform.Find("title");
 				title.GetComponent<Text>().text = p.name;
 				var slider = itemGo.GetComponentInChildren<Slider>();
 				slider.value = p.opacity;
