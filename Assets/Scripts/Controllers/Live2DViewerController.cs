@@ -24,7 +24,7 @@ public class Live2DViewerController : MonoBehaviour
 			case Live2DViewerConfigChangeType.Model:
 				if (config.models.Length > 0) {
 					var current = config.currentModel;
-					modelComponent.LoadFromFiles(current.mocFile, current.textureFiles);
+					modelComponent.LoadFromFiles(current.mocFile, current.textureFiles, current.poseFile);
 					if (current.parts == null || current.parts.Length == 0) {
 						current.parts = modelComponent.LoadParts();
 					} else {
