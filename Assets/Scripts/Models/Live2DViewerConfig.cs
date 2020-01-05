@@ -23,6 +23,7 @@ public class Live2DModelConfig
 	public string[] textureFiles;
 	public string[] motionFiles;
 	public string[] expressionFiles;
+	public string poseFile;
 
 	public Live2DPartConfig[] parts;
 
@@ -89,11 +90,13 @@ public class Live2DViewerConfig
 
 		var mocFiles = Directory.GetFiles(path, "*.moc", SearchOption.AllDirectories);
 		if (mocFiles.Length == 0) {
-			return null;
+			mocFiles = Directory.GetFiles(path, "*.moc.bytes", SearchOption.AllDirectories); // also search bytes files
+			if (mocFiles.Length == 0)
+				return null;
 		}
 
 		config.mocFile = mocFiles[0];
-		var basename = Path.GetFileNameWithoutExtension(config.mocFile);
+		var basename = Path.GetFileNameWithoutExtension(config.mocFile.Replace(".bytes",""));
 
 		foreach (string textureDir in Directory.GetDirectories(path, basename + ".*")) {
 			var textures = Directory.GetFiles(textureDir, "*.png");
@@ -105,7 +108,12 @@ public class Live2DViewerConfig
 		}
 
 		config.motionFiles = Directory.GetFiles(path, "*.mtn", SearchOption.AllDirectories);
+		if(config.motionFiles.Length == 0)
+			config.motionFiles = Directory.GetFiles(path, "*.mtn.bytes", SearchOption.AllDirectories);
+
 		config.expressionFiles = Directory.GetFiles(path, "*.exp.json", SearchOption.AllDirectories);
+		var poseFiles = Directory.GetFiles(path, "*.pose.json", SearchOption.AllDirectories);
+		if (poseFiles.Length > 0) config.poseFile = poseFiles[0];
 
 		return config;
 	}
