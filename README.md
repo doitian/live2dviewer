@@ -3,10 +3,7 @@
 这个项目非常古老，只支持 Cubism 2 的 .moc 模型文件，例如[这里的模型](https://github.com/doitian/live2DModel) (**注意需要调整目录结构**)。
 新的 .moc3 可以使用[官方 Viewer](https://docs.live2d.com/en/cubism-editor-manual/cubism3-viewer-for-ow/)
 
-编译好的包下载：
-
-- [macOS](https://github.com/doitian/live2dviewer/releases/download/latest/live2dviewer-macOS.zip)
-- [Windows](https://github.com/doitian/live2dviewer/releases/download/latest/live2dviewer-Windows.zip)
+编译好的 Windows, macOS 包下载： <https://github.com/doitian/live2dviewer/releases/latest>
 
 相比官方的 air 版 Viewer
 
@@ -92,4 +89,3 @@
             texture_00.png
             texture_01.png
 ```
-
