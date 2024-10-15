@@ -5,8 +5,8 @@
 
 编译好的包下载：
 
-- [macOS](https://developer.cloud.unity3d.com/share/W14skE85mG/)
-- [Windows](https://developer.cloud.unity3d.com/share/byMAlE8qQG/)
+- [macOS](https://github.com/doitian/live2dviewer/releases/download/latest/live2dviewer-macOS.zip)
+- [Windows](https://github.com/doitian/live2dviewer/releases/download/latest/live2dviewer-Windows.zip)
 
 相比官方的 air 版 Viewer
 
@@ -92,3 +92,4 @@
             texture_00.png
             texture_01.png
 ```
+
